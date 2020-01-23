@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Bootstrap core CSS
+    ================================================== -->
+
+    <link href="{{asset ('lib/Template/uikit/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link href="{{asset('lib/Template/uikit/css/uikit.css')}}" rel="stylesheet">
+    <script>
+        var BASE_URL = "{{url('')}}/"
+
+    </script>
+    <title> {{$page_title ?? ''}}</title>
+</head>
+
+<body style="background: url('../../public/lib/Template/images/signin-bg.jpg'); background-position: center center;">
+
+    <section>
+
+        <!-- Container -->
+        <div class="container">
+            <!-- Empty Block (use .abs-filler to fill page)
+    ================================================== -->
+            <div class="empty-block abs-filler">
+                <!-- Vcenter -->
+                <div class="vcenter">
+                    <div class="vcenter-this">
+                        <!-- Container -->
+                        <div class="container">
+                            <!-- Form Panel -->
+                            <div class="form-panel width-33pc width-100pc-xs hcenter">
+                                <header>Sign In
+
+                                    <a href="{{url('/')}}">
+                                        <img src="{{asset('lib/Template/images/logo-xs.jpeg')}}" style="width:50px; float: right; margin: -20px;" alt="holy-grill">
+                                      </a>
+
+                                </header>
+                                <fieldset>
+                                    <form action="" method="POST" autocomplete="off" novalidate="novalidate">
+                                        @csrf()
+                                        @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            <ul>
+                                                @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        @endif
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                <label hidden for="email">* Email </label>
+                                                <input value="{{old('email')}}" type="email" name="email" id="email"
+                                                    class="form-control" placeholder="* Enter email">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+                                                <label hidden for="password">* Password</label>
+                                                <input type="password" name="password" id="password"
+                                                    class="form-control" placeholder="* Enter password">
+                                            </div>
+                                        </div>
+                                      
+                                        <input type="submit" name="submit" value="Sign In"
+                                            class="btn btn-default btn-lg btn-block">
+                                    </form>
+                                </fieldset>
+                            </div>
+                            <!-- /Form Panel -->
+                            <div class="align-center">Need an Account? <a href="{{ url('user/signup')}}">Sign Up</a></div>
+                            <br>
+                            <div class="align-center"><a href="{{url('/')}}">Back to home page</a></div>
+                        </div>
+                        <!-- /Container -->
+                    </div>
+                    <!-- /Vcenter this -->
+                </div>
+                <!-- /Vcenter -->
+            </div>
+            <!-- /Empty Block
+    ================================================== -->
+            <script src="{{asset('js/jquery-latest.min.js')}}"></script>
+
+            <script src="{{asset('js/jquery-scrollto.js')}}"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/esm/popper.js"></script>
+            <script src="{{asset('js/bootstrap.min.js')}}"></script>
+            <script src="{{asset('js/uikit-utils.js')}}"></script>
+            <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
+            <script src="{{asset('js/jquery.bxslider-rahisified.js')}}"></script>
+            <script src="{{asset('js/jquery-ui.min.js')}}"></script>
+            <script src="{{asset('js/highlight.pack.js')}}"></script>
+            <script src="{{asset('js/theme.js')}}"></script>
+            <script src="{{asset('js/wow.min.js')}}"></script>
+            <script src="{{asset('js/style-switcher.js')}}"></script>
+
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.3/bootbox.min.js
+    "></script>
+            <script src="{{asset('js/script.js')}}"></script>
+
+            @if(Session::has('sm'))
+            <script>
+                toastr.options.positionClass = 'toast-bottom-full-width';
+                toastr.options.progressBar = true;
+                toastr.options.escapeHtml = true;
+
+
+                toastr.success('', "{{ Session::get('sm')}}");
+
+            </script>
+            @endif
+
+</body>
+
+</html>

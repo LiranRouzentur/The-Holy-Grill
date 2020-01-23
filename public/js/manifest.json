@@ -1,0 +1,15 @@
+{
+  "short_name": "Holy-Grill",
+  "name": "The-Holy-grill",
+  "icons": [
+    {
+      "src": "../lib/Template/images/holy-grill-logo.jpeg",
+      "type": "image/jpeg",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": "/?launcher=true",
+  "background_color": "#fff",
+  "display": "standalone",
+  "theme_color": "#ab2d29"
+}
